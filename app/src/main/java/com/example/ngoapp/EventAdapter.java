@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,6 +38,19 @@ public class EventAdapter extends RecyclerView.Adapter <EventAdapter.ViewHolder>
         holder.text_description.setText(events.get(position).getDescription());
         holder.text_organizer.setText(events.get(position).getOrganizer());
         holder.text_participants.setText(String.valueOf(events.get(position).getParticipants()));
+
+        holder.registered.setVisibility(View.INVISIBLE);
+
+        final Button temp_button = holder.register;
+        final TextView temp_label = holder.registered;
+
+        holder.register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                temp_button.setVisibility(View.INVISIBLE);
+                temp_label.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override
@@ -51,6 +65,10 @@ public class EventAdapter extends RecyclerView.Adapter <EventAdapter.ViewHolder>
         TextView text_participants;
         TextView text_description;
 
+        Button register;
+
+        TextView registered;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -58,6 +76,10 @@ public class EventAdapter extends RecyclerView.Adapter <EventAdapter.ViewHolder>
             text_description = itemView.findViewById(R.id.event_item_text_description);
             text_participants = itemView.findViewById(R.id.event_item_text_participants);
             text_organizer = itemView.findViewById(R.id.event_item_text_organizer);
+
+            register = itemView.findViewById(R.id.event_item_button_register);
+
+            registered = itemView.findViewById(R.id.event_item_label_registered);
         }
     }
 }

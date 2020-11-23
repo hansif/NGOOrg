@@ -104,7 +104,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/event_item_label_participants" />
 
             <Button
-                android:id="@+id/event_item_button_apply"
+                android:id="@+id/event_item_button_register"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="25dp"
@@ -114,10 +114,29 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="25dp"
                 android:background="#F32424"
-                android:text="APPLY"
+                android:text="Register"
                 android:textColor="#FFFFFF"
                 android:textSize="30dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_item_text_description" />
+
+            <TextView
+                android:id="@+id/event_item_label_registered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="25dp"
+                android:text="Registered"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="#F32424"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
