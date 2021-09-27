@@ -129,13 +129,11 @@ public class ProfileFragment extends Fragment {
                     fw.write("john_carter123\n");
                     fw.write("cjohn123@ngoapp.com\n");
                     fw.write("0000000000\n");
-
                     fw.close();
                 }
                 catch (Exception e) {
                     Toast.makeText(getContext(), "Excpetion: " + e, Toast.LENGTH_SHORT).show();
                 }
-
                 startActivity(new Intent(getActivity(), Signup.class));
                 getActivity().finish();
             }

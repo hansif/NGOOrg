@@ -9,6 +9,9 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
@@ -19,7 +22,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// HH:mm:ss");
+        String reg_date = df.format(c.getTime());
+        showtoast("Currrent Date Time : "+reg_date);
 
+        c.add(Calendar.DATE, 3);  // number of days to add
+        String end_date = df.format(c.getTime());
+        showtoast("end Time : "+end_date);
         selectedFragment = new EventsFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, selectedFragment).commit();
 
@@ -44,10 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, selectedFragment).commit();
-
                 return true;
-
             }
         });
+    }
+
+    private void showtoast(String s) {
     }
 }
